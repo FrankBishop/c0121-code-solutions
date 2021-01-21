@@ -7,21 +7,19 @@
   display: flex;
 }
 
-.column-1 {
+.column-third {
   width: 33%;
 }
 
-.column-2 {
+.column-fourth {
   width: 25%;
 }
 
-.text-1 {
-  flex-wrap: wrap;
+.column-thirds {
   flex-basis: 30%;
 }
 
-.text-2 {
-  flex-wrap: wrap;
+.column-two-thirds {
   flex-basis: 60%;
 }
 
