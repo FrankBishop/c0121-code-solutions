@@ -1,0 +1,56 @@
+h2 {
+  font-family: 'Brandon Grotesque', sans-serif;
+  color: orangered;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+div {
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 9px;
+  margin-bottom: 1px;
+  margin-left: 780px;
+  text-align: left;
+}
+
+form {
+  text-align: center;
+}
+
+input,
+option {
+  font-family: 'AtlasGrotesk', sans-serif;
+  width: 20%;
+  border: solid;
+  border-radius: 10px;
+  border-color: #f2f2f2;
+  padding: 7px 12px 7px;
+  margin-bottom: 5px;
+}
+
+#submit {
+  width: 4%;
+  color: white;
+  background-color: orangered;
+  border-radius: 60px;
+  border: hidden;
+  font-family: 'Brandon Grotesque', sans-serif;
+  padding: 6px 3px 6px 3px;
+  margin-right: -310px;
+  text-align: center;
+}
+
+#howmany {
+  width: 20%;
+  border-radius: 5px;
+  border-color: lightgray;
+  background-color: #f2f2f2;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: 'AtlasGrotesk', sans-serif;
+  margin-left: 1px;
+  color: black;
+  font-weight: bold;
+}
