@@ -1,0 +1,24 @@
+h1,
+h3 {
+  font-family: 'karla', sans-serif;
+}
+
+p,
+button {
+  font-family: 'karla', sans-serif;
+}
+
+.column-one-half {
+  display: flex;
+  flex: 50%;
+}
+
+.top {
+  text-align: center;
+}
+
+/* .button {
+  text-align: center;
+  border: solid;
+  border-color: orange;
+} */
