@@ -5,7 +5,7 @@ h5 {
 
 h5 {
   margin-left: 0;
-  margin-bottom: 0;
+  margin-bottom: 3px;
   margin-top: 60px;
 }
 
@@ -44,21 +44,27 @@ img {
 }
 
 .link {
+  margin-top: 75px;
+  text-align: center;
+  background-color: white;
+}
+
+p {
+  /* margin-left: 100px; */
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  text-decoration: orange;
   width: fit-content;
   border: solid;
   border-color: orange;
   padding: 10px 25px;
   color: orange;
-  margin-top: 75px;
-  margin-left: 425px;
-  background-color: white;
 }
 
-p {
-  margin-left: 100px;
-  margin-top: 0;
-}
-
-a {
-  text-decoration: orange;
+.column-row {
+  display: flex;
 }
