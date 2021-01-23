@@ -4,10 +4,6 @@
   align-items: center;
 }
 
-.empty {
-  background-color: white;
-}
-
 .content {
   background-color: #4296f5;
   color: white;
@@ -23,10 +19,6 @@ img {
   width: 50%;
 }
 
-p {
-  width: 100%;
-}
-
 .circle-image {
   background-color: white;
   border-radius: 50%;
@@ -36,7 +28,6 @@ p {
 }
 
 .column-third {
-  width: 33%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
