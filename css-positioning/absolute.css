@@ -17,7 +17,7 @@
 
   /* your code here */
   position: absolute;
-  left: 225px;
+  right: 10px;
   top: 10px;
 }
 
@@ -31,15 +31,15 @@
   text-transform: uppercase;
 
   /* your code here */
-  position: relative;
-  bottom: 140px;
+  position: absolute;
+  bottom: 0;
 }
 
 .overlay {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
 
   /* your code here */
-  position: relative;
+  position: absolute;
   top: 0;
   width: 300px;
   height: 300px;
