@@ -5,7 +5,7 @@ var orderHistory = [
     orderTotal: '$34.00',
     shipTo: 'JS Masher',
     items: [{
-      item: 'Javascript for Impatient Programmers',
+      name: 'Javascript for Impatient Programmers',
       by: 'Dr. Axel Rauschmayer',
       price: '$31.55',
       deliveredOn: 'August 8, 2020',
@@ -19,7 +19,7 @@ var orderHistory = [
     orderTotal: '$44.53',
     shipTo: 'JS Masher',
     items: [{
-      item: 'The Timeless Way of Building',
+      name: 'The Timeless Way of Building',
       by: 'Christoper Alexander',
       price: '$41.43',
       deliveredOn: 'July 20, 2020',
@@ -33,8 +33,7 @@ var orderHistory = [
     orderTotal: '$17.22',
     shipTo: 'JS Masher',
     items: [{
-      item: 'Gamecube Controller Adapter.Super Smash Bros.Switch Gamecube Adapter for Wii U, PC.Support Turbo and Vibration Features.No Driver and No Lag Gamecube adapter',
-      by: 'Nintendo',
+      name: 'Gamecube Controller Adapter.Super Smash Bros.Switch Gamecube Adapter for Wii U, PC.Support Turbo and Vibration Features.No Driver and No Lag Gamecube adapter',
       price: '15.98',
       deliveredOn: 'July 7, 2020',
       returnWindowEnd: 'August 5, 2020'
@@ -47,14 +46,13 @@ var orderHistory = [
     orderTotal: '$138.93',
     shipTo: 'JS Masher',
     items: [{
-      item: 'GameCube Controller - Super Smash Bros.Edition(Nintendo Switch)',
-      by: 'Nintendo',
+      name: 'GameCube Controller - Super Smash Bros.Edition(Nintendo Switch)',
       price: '94.95',
       deliveredOn: 'July 5, 2020',
       returnWindowEnd: 'August 4, 2020'
     },
     {
-      item: 'The Art of SQL',
+      name: 'The Art of SQL',
       by: 'Stephane Faroult',
       price: '$33.99',
       deliveredOn: 'July 5, 2020',
