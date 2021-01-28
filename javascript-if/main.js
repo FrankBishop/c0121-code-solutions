@@ -9,14 +9,17 @@
  */
 
 function isUnderFive(number) {
-  if (number < 5) { return true; } else {
+  if (number < 5) {
+    return true;
+  } else {
     return false;
   }
 }
 function isEven(number) {
-  if (number % 2 === 0) { return true; } else {
+  if (number % 2 === 0) {
+    return true;
+  } else {
     return false;
-
   }
 }
 
@@ -49,13 +52,23 @@ function isOldEnoughToDrinkAndDrive(person) {
 }
 
 function categorizeAcidity(pH) {
-  if (pH === 7) { return 'This is a neutral pH level'; } else if (pH < 7 && pH >= 0) { return 'This is an acide ph level'; } else if (pH <= 14 && pH > 7) { return 'This is a base pH level'; } else {
+  if (pH === 7) {
+    return 'This is a neutral pH level';
+  } else if (pH < 7 && pH >= 0) {
+    return 'This is an acide ph level';
+  } else if (pH <= 14 && pH > 7) {
+    return 'This is a base pH level';
+  } else {
     return 'This is an invalid pH level';
   }
 }
 
 function introduceWarnerBro(name) {
-  if (name === 'yakko' || name === 'wakko') { return "We're the warner brothers!"; } else if (name === 'dot') { return "I'm cute"; } else {
+  if (name === 'yakko' || name === 'wakko') {
+    return "We're the warner brothers!";
+  } else if (name === 'dot') {
+    return "I'm cute";
+  } else {
     return 'Goodnight everybody!';
   }
 }
