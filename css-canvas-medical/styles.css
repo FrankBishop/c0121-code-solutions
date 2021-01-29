@@ -257,3 +257,33 @@ button {
 .image-text > h1 {
   font-weight: normal;
 }
+
+/* implementation css */
+.portrait3 {
+  height: 800px;
+  width: 1600px;
+  display: flex;
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 70px;
+  background: no-repeat linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/implementation/implementation-header.jpg);
+}
+
+#text-header {
+  font-family: 'Avenir', sans-serif;
+}
+
+.main-text-3 {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-text-3 > h1 {
+  text-align: center;
+
+  /* font-family: 'Avenir', sans-serif; */
+  letter-spacing: 1.2px;
+}
