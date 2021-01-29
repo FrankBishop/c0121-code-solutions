@@ -1,0 +1,38 @@
+.content-area {
+  background-color: #f8f9fa;
+  padding-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+h3 {
+  font-family: 'Barlow', sans-serif;
+}
+
+p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+}
+
+.phone {
+  width: 90%;
+}
+
+.pictures-row {
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  max-width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 20%;
+}
