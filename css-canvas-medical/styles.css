@@ -1,6 +1,40 @@
 body {
   max-width: 1750px;
   margin: auto;
+  font-family: 'Avenir', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bottom > a {
+  text-decoration: none;
+  padding-left: 30px;
+}
+
+.bottom {
+  margin-top: 35px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.header {
+  border-top-style: hidden;
+  border-bottom-style: solid;
+  border-color: #f3f5f6;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-header {
+  display: flex;
+  font-size: 18px;
+}
+
+.header > h1 {
+=======
 }
 
 /* .bottom {
@@ -33,6 +67,37 @@ body {
 }
 
 nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 600px;
+  align-items: center;
+  padding-left: 50px;
+}
+
+button {
+  background-color: #004266;
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 5%;
+  font-family: 'Avenir', sans-serif;
+}
+
+.nav-header > button {
+  width: 180px;
+  height: 60px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.row-4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px;
+
   position: absolute;
   bottom: 7px;
   right: 1px;
@@ -66,6 +131,139 @@ button {
 .column-half {
   width: 800px;
 }
+
+
+.column-half-2 > button {
+  width: 220px;
+  height: 60px;
+  border: solid;
+  border-color: darkslateblue;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  padding: 17px 60px;
+}
+
+.column-half-2 {
+  display: flex;
+  justify-content: flex-end;
+  width: 800px;
+}
+
+.locations-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.locations-row {
+  display: flex;
+  text-align: center;
+}
+
+.column-half-3 {
+  width: 800px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.locations-header > h1 {
+  text-align: center;
+  font-family: 'Tiempos Headline', sans-serif;
+  color: #6c757d;
+  letter-spacing: 1.5px;
+}
+
+.locations-header > p {
+  text-align: center;
+}
+
+.locations {
+  background-color: #f8f8f8;
+  margin: 20px 20px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.portrait {
+  height: 800px;
+  width: 1750px;
+  display: flex;
+  position: relative;
+  background-image: url('images/hero.jpg');
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  margin-bottom: 70px;
+}
+
+.portrait > img {
+  margin: 40px;
+  height: 600px;
+  width: 1100px;
+}
+
+.portrait-text {
+  color: white;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  font-size: 150%;
+  line-height: 1.6;
+}
+
+.portrait > button {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  font-size: 22px;
+  padding: 25px 70px;
+}
+
+.column-4 {
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  flex-basis: 25%;
+  width: 400px;
+  text-align: flex-start;
+  align-content: center;
+  line-height: 2;
+}
+
+.info-block {
+  display: flex;
+  margin-left: 20px;
+  height: 385px;
+  background-color: #666;
+  color: white;
+}
+
+.info-block > .column-half {
+  margin-top: 50px;
+  margin-left: 50px;
+  line-height: 1.7;
+}
+
+.column-4 > h2 {
+  font-weight: normal;
+}
+
+.column-4 > a {
+  font-size: 20px;
+}
+
+.info-block-text > img {
+  max-height: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.header > img {
+  max-height: 35px;
+  margin: 20px 20px;
 
 .column-half > button {
   background-color: darkslateblue;
