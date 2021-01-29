@@ -20,11 +20,17 @@ a {
 }
 
 .header {
-  position: relative;
   border-top-style: hidden;
   border-bottom-style: solid;
   border-color: #f3f5f6;
   margin-bottom: 70px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-header {
+  display: flex;
+  font-size: 18px;
 }
 
 .header > h1 {
@@ -33,14 +39,11 @@ a {
 }
 
 nav {
-  position: absolute;
-  bottom: 15px;
-  right: 1px;
   display: flex;
   justify-content: space-evenly;
-  width: 1000px;
+  width: 600px;
   align-items: center;
-  padding-right: 30px;
+  padding-left: 50px;
 }
 
 button {
@@ -51,15 +54,14 @@ button {
   text-decoration: none;
   color: white;
   border-radius: 5%;
+  font-family: 'Avenir', sans-serif;
 }
 
-.header > button {
-  position: absolute;
-  right: 20px;
-  bottom: 7px;
-  font-size: 15px;
-  width: 150px;
-  height: 40px;
+.nav-header > button {
+  width: 180px;
+  height: 60px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .row-4 {
@@ -124,8 +126,8 @@ button {
 .locations {
   background-color: #f8f8f8;
   margin: 20px 20px;
-  margin-bottom: 50px;
   padding-bottom: 50px;
+  padding-top: 20px;
 }
 
 .portrait {
