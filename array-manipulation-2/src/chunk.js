@@ -4,8 +4,8 @@ function chunk(array, size) {
   // var miniArray = array.slice(size);
   var miniArray = [];
   var i;
-  for (i = 0; i <= array.length; i += size) {
-    miniArray = array[i];
+  for (i = 0; i < array.length; i += size) {
+    miniArray = array.slice(0, size);
     finalArray.push(miniArray);
   }
   return finalArray;
