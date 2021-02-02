@@ -1,13 +1,5 @@
 /* exported capitalizeWord */
 
-// function capitalize(word) {
-//   var uppercase = word.toUpperCase();
-//   uppercase = uppercase.slice(0, 1);
-//   var lowercase = word.slice(1);
-//   lowercase = lowercase.toLowerCase();
-//   var result = uppercase + '' + lowercase;
-//   return result;
-// }
 function capitalizeWord(word) {
   var newWord = word.toLowerCase();
   var lowercase = newWord.slice(1);
@@ -17,6 +9,15 @@ function capitalizeWord(word) {
       newWord = newWord[i].toUpperCase();
       newWord = newWord + lowercase;
     }
+  }
+  if (newWord === 'Javascript') {
+    var java = newWord.slice(0, 4);
+    var script = newWord.slice(4);
+    var script2 = script.slice(1);
+    script = script[0].toUpperCase();
+    script = script + script2;
+    newWord = java + script;
+
   }
   return newWord;
 }
