@@ -32,3 +32,5 @@ function ransomCase(string) {
   }
   return newWord3;
 }
+
+// use remainder like in light bulb challenge
