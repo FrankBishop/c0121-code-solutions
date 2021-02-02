@@ -1,0 +1,31 @@
+.background {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.lightbulb {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: #212529;
+}
+
+.lightbulb-clicked {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: #fe9;
+}
+
+.background-clicked {
+  background-color: #fff8d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
