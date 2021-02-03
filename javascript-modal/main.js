@@ -1,17 +1,17 @@
 var openModal = document.querySelector('.open-modal-button');
-var modal = document.querySelector('.container');
-var page = document.querySelector('.page');
+var container = document.querySelector('.container');
+var modal = document.querySelector('.modal');
 var closeModal = document.querySelector('.modal-button');
 
 openModal.addEventListener('click', openModalFunction);
 closeModal.addEventListener('click', closeModalFunction);
 
 function openModalFunction(event) {
-  modal.className = 'container-open';
-  page.className = 'page-open';
+  container.className = 'container-open';
+  modal.className = 'modal-open';
 }
 
 function closeModalFunction(event) {
   modal.className = 'container';
-  page.className = 'page';
+  container.className = 'container';
 }
