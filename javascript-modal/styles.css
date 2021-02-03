@@ -1,100 +1,11 @@
-/* .container {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 350px;
-  left: 450px; */
-
-/* z-index: 1;
-} */
-
-/* .open-modal-button {
-    background: #3f37c9;
-    height: 7%;
-    width: 14%;
-    color: white;
-    font-size: 2em;
-    border-radius: 6px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-
-  .modal {
-    display: none;
-  }
-
-  .modal > button {
-    background-color: red;
-    padding: 20px 20px;
-    color: white;
-  }
-
-  .modal-opened {
-    width: 40%;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: white;
-    border-radius: 7px;
-    border: white;
-  }
-
-  .modal-opened > button {
-    background-color: red;
-    padding: 20px 20px;
-    color: white;
-  }
-
-  .modal-opened > h1 {
-    margin-bottom: 60px;
-  }
-
-  .container-opened {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 350px;
-    left: 450px;
-  }
-
-  .page {
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .modal-page {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .open-modal-button-open {
-    background: #3f37c9;
-    height: 7%;
-    width: 14%;
-    color: white;
-    font-size: 2em;
-    border-radius: 6px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 5px;
-    margin-left: 5px; */
-
-/* background-color: rgba(0, 0, 0, 0.40); */
-
-/* }
-} */
 .page {
   height: 100vh;
-
-  /* background-color: black;
-    opacity: 30%; */
 }
 
 .page-open {
   height: 100vh;
   background-color: black;
-  opacity: 30%;
+  opacity: 70%;
 }
 
 .container {
@@ -111,15 +22,18 @@
   background-color: white;
   padding-top: 30px;
   border-radius: 6px;
+  font-family: sans-serif;
 }
 
 .container-open > button {
-  background-color: red;
+  background-color: #da5552;
   padding: 15px 40px;
   color: white;
   font-size: 28px;
   border-radius: 6px;
   margin-top: 30px;
+  box-shadow: 1px 1px 0 #da5552;
+  border-color: #da5552;
 }
 
 .container-open > h1 {
@@ -129,7 +43,7 @@
 .open-modal-button {
   background: #3f37c9;
   height: 7%;
-  width: 14%;
+  width: 16%;
   color: white;
   font-size: 2em;
   border-radius: 6px;
