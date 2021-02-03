@@ -4,8 +4,9 @@
 
 .page-open {
   height: 100vh;
-  background-color: black;
-  opacity: 70%;
+
+  /* background-color: black;
+  opacity: 70%; */
 }
 
 .container {
@@ -13,13 +14,15 @@
 }
 
 .container-open {
-  width: 650px;
-  height: 300px;
+  width: 100%;
+  height: 1200px;
   position: fixed;
   text-align: center;
-  top: 350px;
-  left: 600px;
-  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   padding-top: 30px;
   border-radius: 6px;
   font-family: sans-serif;
@@ -54,3 +57,5 @@
   margin-left: 5px;
   cursor: pointer;
 }
+
+/* move modal from container, make it not a child and make both fixed */
