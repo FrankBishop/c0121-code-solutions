@@ -21,3 +21,7 @@
 // if not red
 // also need line under each letter
 // keyboard event key to tell which key was pressed
+
+// document.querySelectorAll('span').forEach {
+
+// }
