@@ -11,17 +11,18 @@ function languagesTab(event) {
     for (i = 0; i < tabNodeList.length; i++) {
       if (tabNodeList[i] === event.target) {
         tabNodeList[i].className = 'tab active';
+        var data = event.target.getAttribute('data-view');
+        for (j = 0; j < viewNodeList.length; j++) {
+          if (viewNodeList[j].getAttribute('data-view') === data) {
+            viewNodeList[j].className = 'view';
+          } else {
+            viewNodeList[j].className = 'hidden';
+          }
+        }
       } else {
         tabNodeList[i].className = 'tab';
       }
     }
   }
-  var data = event.target.getAttribute('data-view');
-  for (j = 0; j < viewNodeList.length; j++) {
-    if (viewNodeList[j].getAttribute('data-view') === data) {
-      viewNodeList[j].className = 'view';
-    } else {
-      viewNodeList[j].className = 'hidden';
-    }
-  }
+
 }
