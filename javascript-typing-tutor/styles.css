@@ -1,3 +1,11 @@
+span {
+  color: black;
+}
+
 .greenkey {
   color: green;
+}
+
+.redkey {
+  color: red;
 }
