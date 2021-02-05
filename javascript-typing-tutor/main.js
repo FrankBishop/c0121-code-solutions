@@ -1,38 +1,49 @@
-var span = document.querySelectorAll('span');
-// var test=document.querySelector('.typing-test')
+// var span = document.querySelectorAll('span');
 document.addEventListener('keydown', keyTest);
-span.forEach(spanLoop);
 var spanTest = document.querySelector('span');
+var letters = document.querySelector('.typing-test').textContent;
 
-function spanLoop(node) {
-  node.addEventListener('keydown', keyTest);
-  // console.log(node)
-
-}
+var lettersArray = letters.split('');
+// console.log(lettersArray);
 
 function keyTest(event) {
-  var key = event.key;
+  // var key = event.key;
   // console.log(key);
   var i;
 
-  for (i = 0; i <= span.length; i++) {
-    // console.log(span.textContent)
-    if (key === span[i]) {
+  for (i = 0; i <= lettersArray.length; i++) {
+    var key = event.key;
+    // console.log(key);
+    // console.log(lettersArray[i]);
+    if (key === lettersArray[i]) {
+      // console.log(key);
+      // console.log(lettersArray[i]);
       spanTest.className = 'greenkey';
     } else {
+      // console.log(key);
+      // console.log(lettersArray[i]);
       spanTest.className = 'redkey';
     }
   }
-  // if(key === "a") {
-  //   console.log('a test worked');
-  //   spanTest.className = 'greenkey';
-  // } else if(key === "w") {
-  //   console.log('this works too')
-  // }
 }
 
-// function keyTest(event) {
+// span.forEach(spanLoop);
+// span.forEach(letters);
 
+// function spanLoop(node) {
+//   var i;
+//   for (i = 0; i <= span.length; i++) {
+//   console.log(letters[i]);
+//   letters[i].addEventListener('keydown', keyTest);
+//   }
+//   console.log(node)
+
+// }
+// if(key === "a") {
+//   console.log('a test worked');
+//   spanTest.className = 'greenkey';
+// } else if(key === "w") {
+//   console.log('this works too')
 // }
 
 // what I need to do
