@@ -16,6 +16,7 @@ function keyTest(event) {
     spanChangeIndexNumber++;
     spanIndex = span[spanIndexNumber].textContent;
     spanChange = span[spanChangeIndexNumber];
+    spanChange.className = 'bottom';
   } else {
     spanChange.className = 'redkey';
   }
