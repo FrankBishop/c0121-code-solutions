@@ -1,31 +1,43 @@
-// var span = document.querySelectorAll('span');
-document.addEventListener('keydown', keyTest);
-var spanTest = document.querySelector('span');
-var letters = document.querySelector('.typing-test').textContent;
+var span = document.querySelectorAll('span');
+// document.addEventListener('keydown', keyTest);
+// var spanTest = document.querySelector('span');
+// var letters = document.querySelector('.typing-test').textContent;
 
-var lettersArray = letters.split('');
-// console.log(lettersArray);
+// Put keydown in forEach for span;
 
-function keyTest(event) {
-  // var key = event.key;
-  // console.log(key);
-  var i;
+// keydown function within for Loop;
 
-  for (i = 0; i <= lettersArray.length; i++) {
-    var key = event.key;
-    // console.log(key);
-    // console.log(lettersArray[i]);
-    if (key === lettersArray[i]) {
-      // console.log(key);
-      // console.log(lettersArray[i]);
-      spanTest.className = 'greenkey';
-    } else {
-      // console.log(key);
-      // console.log(lettersArray[i]);
-      spanTest.className = 'redkey';
-    }
+// var lettersArray = letters.split('');
+var i;
+// var currentLetter;
+// for (var i = 0; i < lettersArray.length; i++) {
+//   currentLetter = lettersArray[i];
+//   console.log(currentLetter);
+// }
+
+span.forEach(spanLoop);
+
+function spanLoop(node) {
+  for (i = 0; i <= node.length; i++) {
+  // console.log(node[i]);
+  // letters[i].addEventListener('keydown', keyTest);
   }
+  // console.log(node)
+
 }
+
+// function keyTest(event) {
+//   var key = event.key;
+//   console.log(key);
+//   // var lettersArray[i] = lettersArray[0];
+//   if (key === lettersArray[i]) {
+//       spanTest.className = 'greenkey';
+//       lettersArray[i]++
+//     } else {
+
+//       spanTest.className = 'redkey';
+//     }
+//   }
 
 // span.forEach(spanLoop);
 // span.forEach(letters);
