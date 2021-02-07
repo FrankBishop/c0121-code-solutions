@@ -1,40 +1,16 @@
 /* exported ransomCase */
-// function ransomCase(string) {
-//   var newWord;
-//   var newWord2;
-//   var newWord3;
-//   var i;
-
-//   for (i = 0; i <= string.length; i++) {
-//     newWord = string.slice(0, 1);
-//     // newWord2 = string[1].toUpperCase();
-//     newWord2 = string.slice(1, 2);
-//     newWord2 = newWord2.toUpperCase();
-//     newWord3 = newWord + newWord2;
-//   }
-//   return newWord3;
-// }
-
-// if index % 2
-
-// function ransomCase(string) {
-//   var newWord;
-//   var newWord2;
-//   var newWord3;
-//   var i;
-
-//   for (i = 0; i <= string.length; i++) {
-// newWord = string.slice(0, 1);
-// newWord2 = string[1].toUpperCase();
-// newWord2 = string.slice(1, 2);
-// newWord2 = newWord2.toUpperCase();
-// newWord3 = newWord + newWord2;
-// console.log(string.charAt(i));
-// if (string.charAt(i)/2 === 0){
-// console.log('it can mod');
-//   }
-// }
-// return newWord3;
-// }
-
-// use remainder like in light bulb challenge
+function ransomCase(string) {
+  var lower = string.toLowerCase();
+  var first = lower.slice(0, 1);
+  var rest = lower.slice(1);
+  var newWord = first;
+  var i;
+  for (i = 0; i < rest.length; i += 2) {
+    var oneLetter = rest.slice(i, i + 1);
+    oneLetter = oneLetter.toUpperCase();
+    newWord = newWord + oneLetter;
+    var twoLetter = rest.slice(i + 1, i + 2);
+    newWord = newWord + twoLetter;
+  }
+  return newWord;
+}
