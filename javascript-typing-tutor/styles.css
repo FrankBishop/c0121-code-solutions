@@ -25,3 +25,31 @@ span {
   border-bottom: solid;
   color: black;
 }
+
+.play-again {
+  display: none;
+}
+
+.play-again-open {
+  position: fixed;
+  top: 40px;
+  left: 460px;
+  z-index: 1;
+  padding: 50px 50px 50px 50px;
+  border-radius: 6px;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #57cc99;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
+  font-size: 1.5em;
+  background-color: #fd1b1d;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
