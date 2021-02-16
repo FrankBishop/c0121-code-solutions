@@ -26,7 +26,13 @@ function pick(source, keys) {
   var newKeys = [];
   var newValues = [];
   var i = 0;
-
+  for (i = 0; i < keysArray.length; i++){
+    if(source.hasOwnProperty(keysArray[i])){
+      delete source.key
+    }
+    console.log(source);
+  }
+}
   // if (keys.includes(keysArray[i])) {
   //   newKeys.push(keysArray[i])
   //   console.log(newKeys);
@@ -36,17 +42,17 @@ function pick(source, keys) {
 
   //for loop to delete keys and values
   // var i = 0;
-  for (i = 0; i < keysArray.length; i++) {
-    if (keys.includes(keysArray[i])) {
-      newObject[keysArray[i]] = valuesArray[i]
-      console.log('loop run', newObject);
-      console.log('loop run', i);
-    } else if (!valuesArray[i]){
-      break
-    }
-    }
-    return newObject
-  }
+  // for (i = 0; i < keysArray.length; i++) {
+  //   if (keys.includes(keysArray[i])) {
+  //     newObject[keysArray[i]] = valuesArray[i]
+  //     console.log('loop run', newObject);
+  //     console.log('loop run', i);
+  //   } else if (!valuesArray[i]){
+  //     break
+  //   }
+  //   }
+  //   return newObject
+  // }
 //   return newObject
 // }
     // }
