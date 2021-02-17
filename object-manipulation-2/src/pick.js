@@ -2,52 +2,11 @@
 function pick(source, keys) {
   var newObject = {};
   var keysArray = Object.keys(source);
-  var valuesArray = Object.values(source);
   var i = 0;
-  for(i=0; i < keysArray.length; i++){
-    if (keys.includes(keysArray[i])) {
-    newObject[keysArray[i]] = valuesArray[i]
-    console.log('loop run', newObject)
+  for(i= 0; i <= keys.length; i++){
+    if (keysArray.indexOf(keys[i]) >= 0 && source[keys[i]] !== undefined ) {
+      newObject[keys[i]] = source[keys[i]]
     }
   }
   return newObject
 }
-
-// function pick(source, keys) {
-//   var newObject = {};
-//   var keysArray = Object.keys(source);
-//   var valuesArray = Object.values(source);
-//   var newKeys = [];
-//   var newValues = [];
-//   var i = 0;
-//   for (i = 0; i < keysArray.length; i++){
-//     if(source.hasOwnProperty(keysArray[i])){
-//       delete source.key
-//     }
-//     console.log(source);
-//   }
-// }
-  // if (keys.includes(keysArray[i])) {
-  //   newKeys.push(keysArray[i])
-  //   console.log(newKeys);
-  //   newValues.push(valuesArray[i])
-  //   console.log(newValues);
-  // }
-
-  //for loop to delete keys and values
-  // var i = 0;
-  // for (i = 0; i < keysArray.length; i++) {
-  //   if (keys.includes(keysArray[i])) {
-  //     newObject[keysArray[i]] = valuesArray[i]
-  //     console.log('loop run', newObject);
-  //     console.log('loop run', i);
-  //   } else if (!valuesArray[i]){
-  //     break
-  //   }
-  //   }
-  //   return newObject
-  // }
-//   return newObject
-// }
-    // }
-    // console.log(newObject);
