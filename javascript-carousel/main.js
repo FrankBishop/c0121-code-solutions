@@ -7,11 +7,11 @@ var dot4 = document.querySelector('.dot4');
 var dot5 = document.querySelector('.dot5');
 var imageHolder = document.querySelector('img');
 var images = [
-  'images/001.png',
-  'images/004.png',
-  'images/007.png',
-  'images/025.png',
-  'images/039.png'
+  'images/614hBOHd3bL.jpg',
+  'images/91ayp7CNKBL._SL1500_.jpg',
+  'images/DQ3at30f.jpg',
+  'images/DQXIS_demo_startscreen_EN-zwkwhtpx8.jpg',
+  'images/61vvWLXNX9L.jpg'
 ];
 var i = 0;
 
@@ -71,35 +71,35 @@ function moveRight(event) {
 }
 
 function image1(event) {
-  imageHolder.setAttribute('src', 'images/001.png');
+  imageHolder.setAttribute('src', 'images/614hBOHd3bL.jpg');
   clearInterval(pictureChange);
   i = 0;
   pictureChange = setInterval(imageLoopAround, 3000);
 }
 
 function image2(event) {
-  imageHolder.setAttribute('src', 'images/004.png');
+  imageHolder.setAttribute('src', 'images/91ayp7CNKBL._SL1500_.jpg');
   clearInterval(pictureChange);
   i = 1;
   pictureChange = setInterval(imageLoopAround, 3000);
 }
 
 function image3(event) {
-  imageHolder.setAttribute('src', 'images/007.png');
+  imageHolder.setAttribute('src', 'images/DQ3at30f.jpg');
   clearInterval(pictureChange);
   i = 2;
   pictureChange = setInterval(imageLoopAround, 3000);
 }
 
 function image4(event) {
-  imageHolder.setAttribute('src', 'images/025.png');
+  imageHolder.setAttribute('src', 'images/DQXIS_demo_startscreen_EN-zwkwhtpx8.jpg');
   clearInterval(pictureChange);
   i = 3;
   pictureChange = setInterval(imageLoopAround, 3000);
 }
 
 function image5(event) {
-  imageHolder.setAttribute('src', 'images/039.png');
+  imageHolder.setAttribute('src', 'images/61vvWLXNX9L.jpg');
   clearInterval(pictureChange);
   i = 4;
   pictureChange = setInterval(imageLoopAround, 3000);
