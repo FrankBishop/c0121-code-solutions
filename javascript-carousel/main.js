@@ -5,12 +5,12 @@ var dot2 = document.querySelector('.dot2');
 var dot3 = document.querySelector('.dot3');
 var dot4 = document.querySelector('.dot4');
 var dot5 = document.querySelector('.dot5');
-var imageHolder = document.querySelector('img');
+var imageHolder = document.querySelector('.carousel-image');
 var images = [
   'images/614hBOHd3bL.jpg',
   'images/91ayp7CNKBL._SL1500_.jpg',
   'images/DQ3at30f.jpg',
-  'images/DQXIS_demo_startscreen_EN-zwkwhtpx8.jpg',
+  'images/i3ltn78g3tb5e87qbpky_390x400_1x-0.jpg',
   'images/61vvWLXNX9L.jpg'
 ];
 var i = 0;
@@ -92,7 +92,7 @@ function image3(event) {
 }
 
 function image4(event) {
-  imageHolder.setAttribute('src', 'images/DQXIS_demo_startscreen_EN-zwkwhtpx8.jpg');
+  imageHolder.setAttribute('src', 'images/i3ltn78g3tb5e87qbpky_390x400_1x-0.jpg');
   clearInterval(pictureChange);
   i = 3;
   pictureChange = setInterval(imageLoopAround, 3000);
