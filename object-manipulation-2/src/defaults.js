@@ -16,10 +16,11 @@
 // }
 
 // function defaults(target, source) {
+//   var newObject = target
 //   var key;
 //   for (key in source) {
-//     if (!target.hasOwnProperty(key)) {
-//       target[key] = source[key]
+//     if (!newObject.hasOwnProperty(key)) {
+//       newObject[key] = source[key]
 //     }
 //   }
 // }
