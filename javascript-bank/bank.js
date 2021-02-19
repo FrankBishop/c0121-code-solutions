@@ -6,10 +6,8 @@ function Bank (){
 
 Bank.prototype.openAccount = function (holder, balance) {
   if(balance > 0){
-    var testAccount = new Account(this.nextAccountNumber, this.holder, this.transactions)
-    // Account.number = this.nextAccountNumber;
-    // Account.holder = this.holder;
-    // Account.transactions = [];
+    var testAccount = new Account(this.nextAccountNumber, this.holder)
+    testAccount.transactions = [];
     testAccount.transactions.push(balance);
     this.accounts.push(testAccount);
     this.nextAccountNumber++;
@@ -20,12 +18,13 @@ Bank.prototype.openAccount = function (holder, balance) {
 }
 
 Bank.prototype.getAccount = function (number) {
-  console.log(number)
+  console.log('number', number);
   var i = 0;
   for(i=0; i < this.accounts.length; i++) {
     console.log('i', i)
-    console.log(number)
+    console.log('number2' , number)
     if(number === this.accounts[i][number]) {
+      console.log('number 3', number3)
       var result = this.accounts[i]
     } else {
       return null
