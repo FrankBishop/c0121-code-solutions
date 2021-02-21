@@ -33,7 +33,7 @@ function resetInterval() {
 }
 
 function imageLoopAround() {
-  if (i < 5) {
+  if (i < images.length) {
     imageHolder.setAttribute('src', images[i]);
     i++;
   } else {
@@ -57,7 +57,7 @@ function moveLeft(event) {
 
 function moveRight(event) {
   resetInterval();
-  if (i <= 3) {
+  if (i < images.length -1) {
     clearInterval(pictureChange);
     i += 1;
     imageHolder.setAttribute('src', images[i]);
