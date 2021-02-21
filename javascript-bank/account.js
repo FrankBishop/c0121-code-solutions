@@ -2,7 +2,7 @@
 function Account(number, holder) {
   this.number = number;
   this.holder = holder;
-  this.transactions = []
+  this.transactions = [];
 }
 
 Account.prototype.deposit = function (amount) {
