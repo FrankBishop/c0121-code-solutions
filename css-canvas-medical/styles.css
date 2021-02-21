@@ -8,6 +8,11 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-family: 'Tiempos Headline', sans-serif;
+  letter-spacing: 1.2px;
+}
+
 .bottom > a {
   text-decoration: none;
   padding-left: 30px;
@@ -206,4 +211,112 @@ button {
 .header > img {
   max-height: 35px;
   margin: 20px 20px;
+}
+
+/* Product CSS */
+.portrait2 {
+  height: 800px;
+  width: 1600px;
+  display: flex;
+  position: relative;
+  background-image: url('images/product/product-header.jpg');
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  margin-bottom: 70px;
+}
+
+.portrait-text2 {
+  color: white;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  font-size: 150%;
+  line-height: 1.6;
+}
+
+.column-60-40 {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f8f8f8;
+  margin-top: 20px;
+  padding-top: 40px;
+}
+
+.image-text {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.column-60-40-2 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  padding-top: 40px;
+}
+
+.image-text > h1 {
+  font-weight: normal;
+}
+
+/* implementation css */
+.portrait3 {
+  height: 800px;
+  width: 1600px;
+  display: flex;
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 70px;
+  background: no-repeat linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/implementation/implementation-header.jpg);
+}
+
+.text-header {
+  font-family: default, sans-serif;
+  font-weight: normal;
+}
+
+.text-header-2 {
+  font-family: 'Avenir', sans-serif;
+  margin-bottom: 50px;
+}
+
+.main-text-3 {
+  margin: auto;
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 60px;
+}
+
+.main-text-3 > div {
+  line-height: 1.4;
+  margin: 20px 55px;
+  width: 100%;
+}
+
+.main-text-3 > div > h1 {
+  display: inline;
+  margin: 7px;
+  font-weight: normal;
+}
+
+.main-text-3 > div > h3 {
+  font-family: 'Avenir', sans-serif;
+  display: inline;
+  font-weight: normal;
+}
+
+.main-text-3 > div > p {
+  font-size: 18px;
+}
+
+.portrait-text-3 {
+  color: white;
+  position: absolute;
+  top: 130px;
+  left: 100px;
+  font-size: 150%;
+  line-height: 1.6;
 }
