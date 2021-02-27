@@ -72,7 +72,7 @@ var cards = [
     rank: 'king',
     suit: 'clubs'
   },
-   {
+  {
     rank: 'ace',
     suit: 'diamonds'
   },
@@ -229,3 +229,8 @@ var cards = [
     suit: 'spades'
   }
 ]
+
+
+var shuffle = _.shuffle(cards);
+
+console.log(shuffle)
