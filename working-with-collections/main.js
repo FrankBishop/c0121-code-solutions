@@ -233,12 +233,6 @@ var cards = [
 
 var shuffle = _.shuffle(cards);
 
-console.log(shuffle)
-
-// _.fromPairs(pairs)
-//_.intersection([arrays])
-//take two from front of array and give to each player with splice
-
 var player1Hand = _.dropRight(shuffle, 50)
 var player2PreHand = _.drop(shuffle, 2)
 var player2Hand = _.dropRight(player2PreHand, 48)
@@ -247,40 +241,35 @@ var player3Hand = _.dropRight(player3PreHand, 46)
 var player4PreHand = _.drop(shuffle, 6)
 var player4Hand = _.dropRight(player4PreHand, 44)
 
-
-
-// console.log(player1Hand)
-// console.log(player2PreHand)
-// console.log(player2Hand)
-// console.log(player3PreHand)
-// console.log(player3Hand)
-// console.log(player4PreHand)
-// console.log(player4Hand)
-
 players[0].hand = player1Hand;
 players[1].hand = player2Hand;
 players[2].hand = player3Hand;
 players[3].hand = player4Hand;
-// console.log(players);
 
-var score = 0;
 
-function findScore() {
-
-  for (var i = 0; i < players.length; i++) {
-    // console.log(players[i].hand[0].rank);
-    // console.log(players[i].hand[1].rank)
-    for (var j = 0; j < players[i].hand.length; j++) {
-      var playerScore = 0
-      if (players[i].hand[j].rank <= 10) {
-
-        // console.log(players[i].hand[j].rank)
-        playerScore += players[i].hand[j].rank
-        console.log(playerScore)
-      } else {
-        console.log('face')
-      }
-
+function findScore(hand) {
+  var playerScore = 0;
+  for (var i = 0; i < hand.length; i++) {
+    if (hand[i].rank <= 10) {
+      playerScore += hand[i].rank;
+    } else if (hand[i].rank === 'jack' || hand[i].rank === 'queen' || hand[i].rank === 'king') {
+      playerScore += 10;
+    } else {
+      playerScore += 11;
     }
   }
+  return playerScore
 }
+
+var player1Score = findScore (players[0].hand)
+var player2Score = findScore (players[1].hand)
+var player3Score = findScore(players[2].hand)
+var player4Score = findScore(players[3].hand)
+
+var scores = [player1Score, player2Score, player3Score, player4Score];
+var winningScore = _.max(scores);
+
+var winnerIndex = scores.indexOf(winningScore);
+
+var winner = players[winnerIndex].name
+console.log('and the winner is', winner)
