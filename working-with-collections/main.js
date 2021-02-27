@@ -234,3 +234,25 @@ var cards = [
 var shuffle = _.shuffle(cards);
 
 console.log(shuffle)
+
+// _.fromPairs(pairs)
+//_.intersection([arrays])
+//take two from front of array and give to each player with splice
+
+var player1Hand = _.dropRight(shuffle, 50)
+var player2PreHand = _.drop(shuffle, 2)
+var player2Hand = _.dropRight(player2PreHand, 48)
+var player3PreHand = _.drop(shuffle, 4)
+var player3Hand = _.dropRight(player3PreHand, 46)
+var player4PreHand = _.drop(shuffle, 6)
+var player4Hand = _.dropRight(player4PreHand, 44)
+
+
+
+console.log(player1Hand)
+console.log(player2PreHand)
+console.log(player2Hand)
+console.log(player3PreHand)
+console.log(player3Hand)
+console.log(player4PreHand)
+console.log(player4Hand)
