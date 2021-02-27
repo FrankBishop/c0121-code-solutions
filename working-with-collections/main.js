@@ -3,19 +3,19 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 var players = [
   {
     name: 'Frank',
-    hand: 'Frank Hand'
+    hand: null
   },
   {
     name: 'John',
-    hand: 'John Hand'
+    hand: null
   },
   {
     name: 'Ted',
-    hand: 'Ted Hand'
+    hand: null
   },
   {
     name: 'Jim',
-    hand: 'Jim Hand'
+    hand: null
   }
 ]
 
@@ -249,10 +249,38 @@ var player4Hand = _.dropRight(player4PreHand, 44)
 
 
 
-console.log(player1Hand)
-console.log(player2PreHand)
-console.log(player2Hand)
-console.log(player3PreHand)
-console.log(player3Hand)
-console.log(player4PreHand)
-console.log(player4Hand)
+// console.log(player1Hand)
+// console.log(player2PreHand)
+// console.log(player2Hand)
+// console.log(player3PreHand)
+// console.log(player3Hand)
+// console.log(player4PreHand)
+// console.log(player4Hand)
+
+players[0].hand = player1Hand;
+players[1].hand = player2Hand;
+players[2].hand = player3Hand;
+players[3].hand = player4Hand;
+// console.log(players);
+
+var score = 0;
+
+function findScore() {
+
+  for (var i = 0; i < players.length; i++) {
+    // console.log(players[i].hand[0].rank);
+    // console.log(players[i].hand[1].rank)
+    for (var j = 0; j < players[i].hand.length; j++) {
+      var playerScore = 0
+      if (players[i].hand[j].rank <= 10) {
+
+        // console.log(players[i].hand[j].rank)
+        playerScore += players[i].hand[j].rank
+        console.log(playerScore)
+      } else {
+        console.log('face')
+      }
+
+    }
+  }
+}
