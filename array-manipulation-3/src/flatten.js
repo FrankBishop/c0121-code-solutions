@@ -7,9 +7,9 @@ function flatten(array) {
   for (i = 0; i < array.length; i++) {
     if (Array.isArray(array[i])) {
       miniArray = array[i];
-      for (j = 0; j < miniArray.length; j++) 
+      for (j = 0; j < miniArray.length; j++)
         newArray.push(miniArray[j]);
-    } else if (!Array.isArray(array[i])) {
+    } else {
       newArray.push(array[i]);
     }
   }
