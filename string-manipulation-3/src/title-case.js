@@ -3,9 +3,8 @@ function titleCase(title) {
   var splitTitle = title.split(' ');
   var newTitle = '';
   var newWord = '';
-  var i;
   var length = splitTitle.length;
-  for (i = 0; i < length; i++) {
+  for (var i = 0; i < length; i++) {
     newWord = splitTitle[i];
     newWord = newWord.toLowerCase();
     if (newWord === 'javascript') {
@@ -17,20 +16,14 @@ function titleCase(title) {
     } else if (newWord === "api") {
       newWord = 'API';
       newTitle = newTitle + ' ' + newWord;
-    } else if (newWord === "web") {
-      newWord = 'Web';
-      newTitle = newTitle + ' ' + newWord;
-    } else if (newWord === "in-depth") {
-      newWord = "In-Depth";
+    } else if (newWord === 'and' || newWord === 'or' || newWord === 'nor' || newWord === 'but' || newWord === 'a' || newWord === 'the' || newWord === 'an' || newWord === 'as' || newWord === 'by' || newWord === 'for' || newWord === 'in' || newWord === 'of' || newWord === 'on' || newWord === 'per' || newWord === 'to') {
       newTitle = newTitle + ' ' + newWord;
     }
-    else if (newWord.length > 3) {
+    else {
       var upperCase = newWord.slice(0, 1);
       var lowercase = newWord.slice(1);
       upperCase = upperCase.toUpperCase();
       newWord = upperCase + lowercase;
-      newTitle = newTitle + ' ' + newWord;
-    } else if (newWord.length <= 3) {
       newTitle = newTitle + ' ' + newWord;
     }
   }
@@ -47,9 +40,21 @@ function titleCase(title) {
       }
     }
   }
+  if (newTitle.includes('-')) {
+    for (i = 0; i < newTitle.length; i++) {
+      if (newTitle[i] === '-') {
+        var dashTitle = newTitle.slice(0, i + 1);
+        var dashTitle2 = newTitle.slice(i + 1);
+        var dashTitle1cap = dashTitle.slice(0, 1);
+        var dashTitle1rest = dashTitle.slice(1)
+        var dashTitle2cap = dashTitle2.slice(0, 1);
+        var dashTitle2rest = dashTitle2.slice(1);
+        dashTitle1cap = dashTitle1cap.toUpperCase();
+        dashTitle2cap = dashTitle2cap.toUpperCase();
+        newTitle = dashTitle1cap + dashTitle1rest + dashTitle2cap + dashTitle2rest;
+      }
+    }
+  }
   newTitle = newTitle.trim();
   return newTitle
 }
-
-
-
