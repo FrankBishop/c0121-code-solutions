@@ -1,10 +1,5 @@
 var left = document.querySelector('.fa-angle-left');
 var right = document.querySelector('.fa-angle-right');
-// var dot1 = document.querySelector('.dot1');
-// var dot2 = document.querySelector('.dot2');
-// var dot3 = document.querySelector('.dot3');
-// var dot4 = document.querySelector('.dot4');
-// var dot5 = document.querySelector('.dot5');
 var dots = document.querySelectorAll('.dot')
 var imageHolder = document.querySelector('.carousel-image');
 var images = [
@@ -18,19 +13,20 @@ var i = 0;
 
 left.addEventListener('click', moveLeft);
 right.addEventListener('click', moveRight);
-// dot1.addEventListener('click', image1);
-// dot2.addEventListener('click', image2);
-// dot3.addEventListener('click', image3);
-// dot4.addEventListener('click', image4);
-// dot5.addEventListener('click', image5);
-
 var pictureChange = null;
 
 resetInterval();
+addDots();
 
 function resetInterval() {
   clearInterval(pictureChange);
   pictureChange = setInterval(imageLoopAround, 3000);
+}
+
+function addDots() {
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', changeImage)
+  }
 }
 
 function imageLoopAround() {
@@ -58,7 +54,7 @@ function moveLeft(event) {
 
 function moveRight(event) {
   resetInterval();
-  if (i < images.length -1) {
+  if (i < images.length - 1) {
     clearInterval(pictureChange);
     i += 1;
     imageHolder.setAttribute('src', images[i]);
@@ -71,43 +67,15 @@ function moveRight(event) {
   }
 }
 
-// function image1(event) {
-//   imageHolder.setAttribute('src', 'images/614hBOHd3bL.jpg');
-//   clearInterval(pictureChange);
-//   i = 0;
-//   pictureChange = setInterval(imageLoopAround, 3000);
-// }
-
-// function image2(event) {
-//   imageHolder.setAttribute('src', 'images/91ayp7CNKBL._SL1500_.jpg');
-//   clearInterval(pictureChange);
-//   i = 1;
-//   pictureChange = setInterval(imageLoopAround, 3000);
-// }
-
-// function image3(event) {
-//   imageHolder.setAttribute('src', 'images/DQ3at30f.jpg');
-//   clearInterval(pictureChange);
-//   i = 2;
-//   pictureChange = setInterval(imageLoopAround, 3000);
-// }
-
-// function image4(event) {
-//   imageHolder.setAttribute('src', 'images/i3ltn78g3tb5e87qbpky_390x400_1x-0.jpg');
-//   clearInterval(pictureChange);
-//   i = 3;
-//   pictureChange = setInterval(imageLoopAround, 3000);
-// }
-
-// function image5(event) {
-//   imageHolder.setAttribute('src', 'images/61vvWLXNX9L.jpg');
-//   clearInterval(pictureChange);
-//   i = 4;
-//   pictureChange = setInterval(imageLoopAround, 3000);
-// }
-
-function changeImage (event) {
-  for(var i =0; i < dots.length; i++) {
-    console.log(dots[i])
+function changeImage(event) {
+  resetInterval();
+  var imageToChange = event.target.getAttribute('image')
+  for (var j = 0; j < dots.length; j++) {
+    if (dots[j].getAttribute('image') === imageToChange) {
+      clearInterval(pictureChange);
+      imageHolder.setAttribute('src', images[j]);
+    }
   }
+  pictureChange = setInterval(imageLoopAround, 3000);
 }
+//it skips images in imageLoopAround after multiple runs of changeImage, probably need to clearInterval
