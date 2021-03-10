@@ -8,7 +8,8 @@ Bank.prototype.openAccount = function (holder, balance) {
   if (balance > 0) {
     var testAccount = new Account(this.nextAccountNumber, holder);
     testAccount.transactions = [];
-    testAccount.transactions.push(balance);
+    var startBalance = { balance };
+    testAccount.transactions.push(startBalance);
     this.accounts.push(testAccount);
     this.nextAccountNumber++;
     return testAccount.number;
@@ -19,10 +20,10 @@ Bank.prototype.openAccount = function (holder, balance) {
 
 Bank.prototype.getAccount = function (number) {
   var checkNumber = number;
-  var i = 0;
-  for (i = 0; i < this.accounts.length; i++) {
+  var result = {};
+  for (var i = 0; i < this.accounts.length; i++) {
     if (checkNumber === this.accounts[i].number) {
-      var result = this.accounts[i];
+      result = this.accounts[i];
       return result;
     }
   }
@@ -30,23 +31,17 @@ Bank.prototype.getAccount = function (number) {
 };
 
 Bank.prototype.getTotalAssets = function () {
-  var i;
-  var j;
-  var total = 0;
-  var totalForAccount;
-  var totalForAccount2 = 0;
+  var totalForAccount = 0;
   if (this.accounts.length === 0) {
     return 0;
   } else {
-    for (i = 0; i < this.accounts.length; i++) {
-      totalForAccount = this.accounts[i].transactions;
-      var totalSingleAccount = 0;
-      for (j = 0; j < totalForAccount.length; j++) {
-        totalForAccount2 = totalForAccount[j];
-        totalSingleAccount += totalForAccount2;
+    for (var i = 0; i < this.accounts.length; i++) {
+      totalForAccount += this.accounts[i].transactions[0].balance;
+      totalForAccount += this.accounts[i].transactions[1].depositAmount;
+      if (this.accounts[i].transactions.length > 2) {
+        totalForAccount += this.accounts[i].transactions[2].withdrawalAmount;
       }
-      total += totalSingleAccount;
     }
-    return total;
+    return totalForAccount;
   }
 };
