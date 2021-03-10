@@ -1,6 +1,6 @@
 var left = document.querySelector('.fa-angle-left');
 var right = document.querySelector('.fa-angle-right');
-var dots = document.querySelectorAll('.dot')
+var dots = document.querySelectorAll('.dot');
 var imageHolder = document.querySelector('.carousel-image');
 var images = [
   'images/614hBOHd3bL.jpg',
@@ -25,7 +25,7 @@ function resetInterval() {
 
 function addDots() {
   for (var i = 0; i < dots.length; i++) {
-    dots[i].addEventListener('click', changeImage)
+    dots[i].addEventListener('click', changeImage);
   }
 }
 
@@ -69,13 +69,13 @@ function moveRight(event) {
 
 function changeImage(event) {
   resetInterval();
-  var imageToChange = event.target.getAttribute('image')
+  var imageToChange = event.target.getAttribute('image');
   for (var j = 0; j < dots.length; j++) {
     if (dots[j].getAttribute('image') === imageToChange) {
       clearInterval(pictureChange);
       imageHolder.setAttribute('src', images[j]);
+      i = j;
     }
   }
   pictureChange = setInterval(imageLoopAround, 3000);
 }
-//it skips images in imageLoopAround after multiple runs of changeImage, probably need to clearInterval
