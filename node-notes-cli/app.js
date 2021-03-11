@@ -1,6 +1,7 @@
 // const { listenerCount } = require('events');
 const fs = require('fs');
 const dataJSON = require('./data.json');
+// const todos = JSON.stringify(dataJSON, null, 2);
 // const todo = require('./todo.txt');
 // fs.writeFile('todo.txt', list, 'utf8', err => {
 //   if (err) throw err;
@@ -17,14 +18,21 @@ if (process.argv[2] === 'read') {
     }
   });
 } else if (process.argv[2] === 'create') {
-  // console.log(dataJSON);
-  // let todos = JSON.stringify(dataJSON.notes, null, 2)
-  // console.log(todos);
   const todoToAdd = process.argv[3];
   addTodo(todoToAdd);
+  const todos = JSON.stringify(dataJSON, null, 2);
+  fs.writeFile('data.json', todos, 'utf8', err => {
+    if (err) {
+      throw err;
+    }
+  });
+} else if (process.argv[2] === 'delete') {
+  console.log('it deletes');
+  const toDelete = process.argv[3];
+  console.log('delete', toDelete);
+  deleteTodo(toDelete);
   console.log(dataJSON);
   const todos = JSON.stringify(dataJSON, null, 2);
-  // let updatedTodos = JSON.parse(todos);
   fs.writeFile('data.json', todos, 'utf8', err => {
     if (err) {
       throw err;
@@ -37,4 +45,8 @@ if (process.argv[2] === 'read') {
 function addTodo(addedTodo) {
   dataJSON.notes[dataJSON.nextId] = addedTodo;
   dataJSON.nextId++;
+}
+
+function deleteTodo(deletedTodo) {
+  delete dataJSON.notes[deletedTodo];
 }
