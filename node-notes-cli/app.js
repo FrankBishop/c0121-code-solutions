@@ -1,11 +1,5 @@
-// const { listenerCount } = require('events');
 const fs = require('fs');
 const dataJSON = require('./data.json');
-// const todos = JSON.stringify(dataJSON, null, 2);
-// const todo = require('./todo.txt');
-// fs.writeFile('todo.txt', list, 'utf8', err => {
-//   if (err) throw err;
-// });
 
 if (process.argv[2] === 'read') {
   fs.readFile('data.json', 'utf8', (err, data) => {
@@ -38,10 +32,21 @@ if (process.argv[2] === 'read') {
       throw err;
     }
   });
+} else if (process.argv[2] === 'update') {
+  console.log('it updates');
+  const toUpdate = process.argv[3];
+  const updateTodo = process.argv[4];
+  console.log(updateTodo);
+  updateATodo(toUpdate, updateTodo);
+  console.log(dataJSON);
+  const todos = JSON.stringify(dataJSON, null, 2);
+  fs.writeFile('data.json', todos, 'utf8', err => {
+    if (err) {
+      throw err;
+    }
+  });
 }
 
-// let todos = JSON.stringify(data.JSON, null, 2)
-// maybe set result of for in loop to a variable to call later in other functions
 function addTodo(addedTodo) {
   dataJSON.notes[dataJSON.nextId] = addedTodo;
   dataJSON.nextId++;
@@ -49,4 +54,11 @@ function addTodo(addedTodo) {
 
 function deleteTodo(deletedTodo) {
   delete dataJSON.notes[deletedTodo];
+}
+
+function updateATodo(todoNumber, updatedTodo) {
+  console.log('function', todoNumber);
+  console.log('function', updatedTodo);
+  console.log(dataJSON.notes);
+  dataJSON.notes[todoNumber] = updatedTodo;
 }
