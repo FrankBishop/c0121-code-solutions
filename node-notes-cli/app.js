@@ -15,36 +15,18 @@ if (process.argv[2] === 'read') {
   const todoToAdd = process.argv[3];
   addTodo(todoToAdd);
   const todos = JSON.stringify(dataJSON, null, 2);
-  fs.writeFile('data.json', todos, 'utf8', err => {
-    if (err) {
-      throw err;
-    }
-  });
+  changeFile(todos);
 } else if (process.argv[2] === 'delete') {
-  console.log('it deletes');
   const toDelete = process.argv[3];
-  console.log('delete', toDelete);
   deleteTodo(toDelete);
-  console.log(dataJSON);
   const todos = JSON.stringify(dataJSON, null, 2);
-  fs.writeFile('data.json', todos, 'utf8', err => {
-    if (err) {
-      throw err;
-    }
-  });
+  changeFile(todos);
 } else if (process.argv[2] === 'update') {
-  console.log('it updates');
   const toUpdate = process.argv[3];
   const updateTodo = process.argv[4];
-  console.log(updateTodo);
   updateATodo(toUpdate, updateTodo);
-  console.log(dataJSON);
   const todos = JSON.stringify(dataJSON, null, 2);
-  fs.writeFile('data.json', todos, 'utf8', err => {
-    if (err) {
-      throw err;
-    }
-  });
+  changeFile(todos);
 }
 
 function addTodo(addedTodo) {
@@ -57,8 +39,13 @@ function deleteTodo(deletedTodo) {
 }
 
 function updateATodo(todoNumber, updatedTodo) {
-  console.log('function', todoNumber);
-  console.log('function', updatedTodo);
-  console.log(dataJSON.notes);
   dataJSON.notes[todoNumber] = updatedTodo;
+}
+
+function changeFile(todoList) {
+  fs.writeFile('data.json', todoList, 'utf8', err => {
+    if (err) {
+      throw err;
+    }
+  });
 }
