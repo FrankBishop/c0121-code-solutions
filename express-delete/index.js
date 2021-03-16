@@ -24,19 +24,19 @@ let grades = {
 
 app.get('/api/grades', function (req, res) {
   let key;
-  array = [];
+  let array = [];
   for (key in grades) {
     array.push(grades[key]);
   }
   res.json(array);
-  grades = array;
-  console.log(grades);
 });
 
-app.delete('/api/grades:id', function (req, res) {
-  res.send(req.params);
-  grades.splice(req.params, 1);
-  res.sendStatus(204);
+app.delete('/api/grades/:id', function (req, res) {
+  console.log(req.params.id);
+  // const id = Number(req.params.id);
+  // console.log(id);
+  delete grades[req.params.id];
+  // res.sendStatus(204);
 });
 
 app.listen(3000, () => {
