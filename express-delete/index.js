@@ -36,6 +36,7 @@ app.get('/api/grades', function (req, res) {
 app.delete('/api/grades:id', function (req, res) {
   res.send(req.params);
   grades.splice(req.params, 1);
+  res.sendStatus(204);
 });
 
 app.listen(3000, () => {
