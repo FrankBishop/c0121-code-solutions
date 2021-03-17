@@ -14,23 +14,19 @@ app.get('/api/notes', function (req, res) {
   for (key in dataJSON.notes) {
     array.push(dataJSON.notes[key]);
   }
-  res.json(array);
   res.status(200).send(array);
 });
 
 app.get('/api/notes/:id', function (req, res) {
+  console.log('it runs');
   const id = req.params.id;
   if (id < 0) {
     res.status(400).send({ "error": "id must be a positive integer" })
+  } else if (!dataJSON.notes.hasOwnProperty(id)) {
+    res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
   } else {
-    let key;
-    for (key in dataJSON.notes) {
-      if (id === key) {
-        res.status(200).send(dataJSON.notes[key]);
-      }
-    }
+    res.status(200).send(dataJSON.notes[id]);
   }
-  res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
 });
 
 app.post('/api/notes', function (req, res, next) {
@@ -40,7 +36,11 @@ app.post('/api/notes', function (req, res, next) {
     res.status(201).json(req.body);
     nextId++;
     const todos = JSON.stringify(dataJSON, null, 2);
-    changeFile(todos);
+    fs.writeFile('data.json', todos, 'utf8', err => {
+      if (err) {
+        res.status(500).send({ "error": "An unexpected error occurred." });
+      }
+    });
   } else {
     res.status(400).send({ "error": "content is a required field" })
   }
@@ -57,11 +57,15 @@ app.delete('/api/notes/:id', function (req, res) {
         delete dataJSON.notes[key];
         res.status(204).send(dataJSON.notes[key]);
         const todos = JSON.stringify(dataJSON, null, 2);
-        changeFile(todos);
+        fs.writeFile('data.json', todos, 'utf8', err => {
+          if (err) {
+            res.status(500).send({ "error": "An unexpected error occurred." });
+          }
+        });
       }
     }
-  }
-  res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
+    res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
+  };
 });
 
 app.put('/api/notes/:id', function (req, res) {
@@ -76,7 +80,11 @@ app.put('/api/notes/:id', function (req, res) {
         dataJSON.notes[key] = req.body;
         res.status(200).send(dataJSON.notes[key]);
         const todos = JSON.stringify(dataJSON, null, 2);
-        changeFile(todos);
+        fs.writeFile('data.json', todos, 'utf8', err => {
+          if (err) {
+            res.status(500).send({ "error": "An unexpected error occurred." });
+          }
+        });
       }
     }
     res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
@@ -89,11 +97,3 @@ app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Express server listening on port 3000');
 });
-
-function changeFile(todoList) {
-  fs.writeFile('data.json', todoList, 'utf8', err => {
-    if (err) {
-      res.status(500).send({ "error": "An unexpected error occurred." });
-    }
-  });
-}
