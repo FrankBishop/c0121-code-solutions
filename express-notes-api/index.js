@@ -21,7 +21,7 @@ app.get('/api/notes', function (req, res) {
 app.get('/api/notes/:id', function (req, res) {
   const id = req.params.id;
   if (id < 0) {
-    res.status(404).send({ "error": "id must be a positive integer" })
+    res.status(400).send({ "error": "id must be a positive integer" })
   } else {
     let key;
     for (key in dataJSON.notes) {
@@ -66,20 +66,20 @@ app.delete('/api/notes/:id', function (req, res) {
 
 app.put('/api/notes/:id', function (req, res) {
   const id = req.params.id;
-  console.log(req.params.content);
   if (id < 0) {
     res.status(400).send({ "error": "id must be a positive integer" });
   } else if ((req.body.hasOwnProperty('content'))) {
     let key;
     for (key in dataJSON.notes) {
-      console.log(key);
       if (id === key) {
+        req.body.id = id;
         dataJSON.notes[key] = req.body;
         res.status(200).send(dataJSON.notes[key]);
         const todos = JSON.stringify(dataJSON, null, 2);
         changeFile(todos);
       }
     }
+    res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
   } else {
     res.status(400).send({ "error": "content is a required field" });
   }
@@ -93,7 +93,7 @@ app.listen(3000, () => {
 function changeFile(todoList) {
   fs.writeFile('data.json', todoList, 'utf8', err => {
     if (err) {
-      res.status(201).send({ "error": "An unexpected error occurred." });
+      res.status(500).send({ "error": "An unexpected error occurred." });
     }
   });
 }
