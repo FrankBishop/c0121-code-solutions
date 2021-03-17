@@ -51,6 +51,23 @@ app.post('/api/notes', function (req, res, next) {
   }
 });
 
+app.delete('/api/notes/:id', function (req, res) {
+  const id = req.params.id;
+  if (id < 0) {
+    res.status(400).send({ "error": "id must be a positive integer" });
+  } else {
+    let key;
+    for (key in dataJSON.notes) {
+      if (id === key) {
+        delete dataJSON.notes[key];
+        res.status(204).send(dataJSON.notes[key]);
+        const todos = JSON.stringify(dataJSON, null, 2);
+        changeFile(todos);
+      }
+    }
+  }
+  res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
+});
 
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
@@ -64,3 +81,6 @@ function changeFile(todoList) {
     }
   });
 }
+
+
+//write to file for delere
