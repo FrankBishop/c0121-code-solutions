@@ -18,19 +18,24 @@ app.get('/api/notes', function (req, res) {
     array.push(dataJSON.notes[key]);
   }
   res.json(array);
-  console.log(array);
   res.status(200).send(array);
 });
 
-// app.get('/api/notes/:id', function (req, res) {
-//   const id = req.params.id;
-//   console.log('id', id);
-//   if (id < 0) {
-//     res.status(404).send({"error": "id must be a positive integer"})
-//   }
-//   // console.log(dataJSON.notes[req.params.id]);
-//   res.json(dataJSON.notes[req.params.id]);
-// });
+app.get('/api/notes/:id', function (req, res) {
+  const id = req.params.id;
+  if (id < 0) {
+    res.status(404).send({ "error": "id must be a positive integer" })
+  } else {
+    let key;
+    for (key in dataJSON.notes) {
+      if (id === key) {
+        res.status(200).send(dataJSON.notes[key]);
+      }
+    }
+  }
+  res.status(404).send({ "error": "cannot find note with id" + ' ' + id });
+});
+
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Express server listening on port 3000');
