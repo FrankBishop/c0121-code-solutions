@@ -1,8 +1,7 @@
 const add = require('./add');
-const sub = require('./subtract')
-const divide = require('./divide')
-const multiply = require('./multiply')
-
+const sub = require('./subtract');
+const divide = require('./divide');
+const multiply = require('./multiply');
 
 if (process.argv[3] === 'plus') {
   console.log(`Result: ${add.add(process.argv[2], process.argv[4])}`);
