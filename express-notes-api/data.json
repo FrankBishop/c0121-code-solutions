@@ -1,23 +1,9 @@
 {
   "nextId": 10,
   "notes": {
-    "5": {
-      "content": "test"
-    },
-    "9": {
-      "content": "test again"
-    },
-    "10": {
-      "content": "this is a new test",
-      "id": 10
-    },
     "11": {
-      "content": "this is a new test",
-      "id": 11
-    },
-    "12": {
-      "content": "this is a new test",
-      "id": 12
+      "content": "142another test test31",
+      "id": "11"
     }
   }
 }
