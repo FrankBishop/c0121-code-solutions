@@ -5,8 +5,6 @@ promise.then((value) => {
   console.log(value);
 });
 promise.catch((error) => {
-  let errorMessage = new Error(error);
-  errorMessage = errorMessage.toString();
-  errorMessage = errorMessage.slice(14);
+  const errorMessage = error.message;
   console.log(errorMessage);
 });
