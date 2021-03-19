@@ -35,7 +35,22 @@ app.get('/api/grades', function (req, res) {
 });
 
 app.post('/api/grades', function (req, res) {
-  console.log(req.body);
+  if (req.body.score < 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+    return;
+  } else if (!req.body.name) {
+    res.status(400).json({
+      error: '"name" is a required field'
+    });
+    return;
+  } else if (!req.body.course) {
+    res.status(400).json({
+      error: '"course" is a required field'
+    });
+    return;
+  }
   const values = [];
   let key;
   for (const key in req.body) {
@@ -44,11 +59,18 @@ app.post('/api/grades', function (req, res) {
   const sql = `
     insert into "grades" ("name", "course", "score")
     values ($1, $2, $3)
-  `
+    returning *
+  `;
   db.query(sql, values)
     .then(result => {
-      const grade = result.rows;
+      const grade = result.rows[0];
       res.status(200).json(grade);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
     });
 });
 
