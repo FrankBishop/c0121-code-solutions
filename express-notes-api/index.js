@@ -32,12 +32,13 @@ app.post('/api/notes', function (req, res, next) {
   if (req.body.content) {
     req.body.id = nextId;
     dataJSON.notes[nextId] = req.body;
-    res.status(201).json(req.body);
-    nextId++;
     const todos = JSON.stringify(dataJSON, null, 2);
     fs.writeFile('data.json', todos, 'utf8', err => {
       if (err) {
         res.status(500).send({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(201).json(req.body);
+        nextId++;
       }
     });
   } else {
@@ -47,6 +48,7 @@ app.post('/api/notes', function (req, res, next) {
 
 app.delete('/api/notes/:id', function (req, res) {
   const id = req.params.id;
+  let test = false;
   if (id < 0) {
     res.status(400).send({ error: 'id must be a positive integer' });
   } else {
@@ -54,21 +56,26 @@ app.delete('/api/notes/:id', function (req, res) {
     for (key in dataJSON.notes) {
       if (id === key) {
         delete dataJSON.notes[key];
-        res.status(204).send(dataJSON.notes[key]);
         const todos = JSON.stringify(dataJSON, null, 2);
+        test = true;
         fs.writeFile('data.json', todos, 'utf8', err => {
           if (err) {
             res.status(500).send({ error: 'An unexpected error occurred.' });
+          } else {
+            res.status(204).send();
           }
         });
       }
     }
+  }
+  if (test === false) {
     res.status(404).send({ error: 'cannot find note with id' + ' ' + id });
   }
 });
 
 app.put('/api/notes/:id', function (req, res) {
   const id = req.params.id;
+  let test = false;
   if (id < 0) {
     res.status(400).send({ error: 'id must be a positive integer' });
   } else if (req.body.content) {
@@ -77,16 +84,20 @@ app.put('/api/notes/:id', function (req, res) {
       if (id === key) {
         req.body.id = id;
         dataJSON.notes[key] = req.body;
-        res.status(200).send(dataJSON.notes[key]);
         const todos = JSON.stringify(dataJSON, null, 2);
+        test = true;
         fs.writeFile('data.json', todos, 'utf8', err => {
           if (err) {
             res.status(500).send({ error: 'An unexpected error occurred.' });
+          } else {
+            res.status(200).send(dataJSON.notes[key]);
           }
         });
       }
     }
-    res.status(404).send({ error: 'cannot find note with id' + ' ' + id });
+    if (test === false) {
+      res.status(404).send({ error: 'cannot find note with id' + ' ' + id });
+    }
   } else {
     res.status(400).send({ error: 'content is a required field' });
   }
