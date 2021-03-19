@@ -34,6 +34,25 @@ app.get('/api/grades', function (req, res) {
     });
 });
 
+app.post('/api/grades', function (req, res) {
+  console.log(req.body);
+  const values = [];
+  let key;
+  for (const key in req.body) {
+    values.push(`${req.body[key]}`);
+  }
+  const sql = `
+    insert into "grades" ("name", "course", "score")
+    values ($1, $2, $3)
+  `
+  db.query(sql, values)
+    .then(result => {
+      const grade = result.rows;
+      res.status(200).json(grade);
+    });
+});
+
+
 // app.get('/api/grades/:gradeId', (req, res, next) => {
 //   const gradeId = parseInt(req.params.gradeId, 10);
 //   if (!Number.isInteger(gradeId) || gradeId <= 0) {
