@@ -35,7 +35,8 @@ app.get('/api/grades', function (req, res) {
 });
 
 app.post('/api/grades', function (req, res) {
-  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+  const score = parseInt(req.body.score, 10);
+  if (!Number.isInteger(score) || score <= 0) {
     res.status(400).json({
       error: '"score" must be a positive integer'
     });
