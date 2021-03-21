@@ -108,7 +108,6 @@ app.put('/api/grades/:gradeId', (req, res) => {
   for (const key in req.body) {
     values.push(`${req.body[key]}`);
   }
-  console.log(values);
   const sql = `
     update "grades"
        set "course" = $1,
@@ -117,10 +116,23 @@ app.put('/api/grades/:gradeId', (req, res) => {
      where "gradeId" = ${id}
      returning *;
   `;
+  console.log(sql);
   db.query(sql, values)
     .then(result => {
       const grade = result.rows[0];
-      res.status(200).json(grade);
+      const test = res.json(grade);
+      console.log(grade);
+      // if (grade.gradeId) {
+      //   console.log('it is an object');
+      //   res.status(200).json(grade);
+      //   return;
+      // }
+      if (typeof grade !== 'object') {
+        res.status(404).json({
+          error: 'GradeId could not be found.'
+        });
+        return;
+      }
     })
     .catch(err => {
       console.error(err);
@@ -128,17 +140,60 @@ app.put('/api/grades/:gradeId', (req, res) => {
         error: 'An unexpected error occurred.'
       });
     });
-})
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  let test = false;
+  if (gradeId < 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+    return;
+  }
+  const sql = `
+    delete from "grades"
+    where "gradeId" =  $1
+  `;
+  console.log(sql);
+  const params = [gradeId];
+  console.log(params);
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows;
+      console.log('grade', grade)
+      if (!grade) {
+        res.status(404).json({
+          error: `Cannot find grade with "gradeId" ${gradeId}`
+        });
+      } else {
+        res.status(204).json(grade);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
 
 
 
 
 
+//
 
-
-
-
-
+// make this and loop through it
+// const sql = `
+//     select *
+//       from "grades"
+//   `;
+// db.query(sql)
+//   .then(result => {
+//     const grade = result.rows;
+//     res.status(200).json(grade);
+//   })
 
 
 //   else if (req.body.content) {
