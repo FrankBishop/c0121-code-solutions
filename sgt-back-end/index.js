@@ -35,7 +35,7 @@ app.get('/api/grades', function (req, res) {
 });
 
 app.post('/api/grades', function (req, res) {
-  if (req.body.score < 0) {
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"score" must be a positive integer'
     });
@@ -69,7 +69,7 @@ app.post('/api/grades', function (req, res) {
   db.query(sql, values)
     .then(result => {
       const grade = result.rows[0];
-      res.status(200).json(grade);
+      res.status(201).json(grade);
     })
     .catch(err => {
       console.error(err);
@@ -80,9 +80,8 @@ app.post('/api/grades', function (req, res) {
 });
 
 app.put('/api/grades/:gradeId', (req, res) => {
-  const id = req.params.gradeId;
-  let test = false;
-  if (id < 0) {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a positive integer'
     });
@@ -110,28 +109,23 @@ app.put('/api/grades/:gradeId', (req, res) => {
   }
   const sql = `
     update "grades"
-       set "course" = $1,
-           "name" = $2,
-           "score" = $3
-     where "gradeId" = ${id}
+       set "course" = $2,
+           "name" = $3,
+           "score" = $4
+     where "gradeId" = $1
      returning *;
   `;
-  console.log(sql);
-  db.query(sql, values)
+  const params = [gradeId, values[0], values[1], values[2]];
+  db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
-      const test = res.json(grade);
-      console.log(grade);
-      // if (grade.gradeId) {
-      //   console.log('it is an object');
-      //   res.status(200).json(grade);
-      //   return;
-      // }
-      if (typeof grade !== 'object') {
+      console.log('grade', grade);
+      if (!grade) {
         res.status(404).json({
-          error: 'GradeId could not be found.'
+          error: `Cannot find grade with "gradeId" ${gradeId}`
         });
-        return;
+      } else {
+        res.status(200).json(grade);
       }
     })
     .catch(err => {
@@ -144,8 +138,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
 
 app.delete('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseInt(req.params.gradeId, 10);
-  let test = false;
-  if (gradeId < 0) {
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a positive integer'
     });
@@ -166,87 +159,6 @@ app.delete('/api/grades/:gradeId', (req, res) => {
         });
       } else {
         res.status(204).json(grade);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({
-        error: 'An unexpected error occurred.'
-      });
-    });
-});
-
-
-
-
-
-//
-
-// make this and loop through it
-// const sql = `
-//     select *
-//       from "grades"
-//   `;
-// db.query(sql)
-//   .then(result => {
-//     const grade = result.rows;
-//     res.status(200).json(grade);
-//   })
-
-
-//   else if (req.body.content) {
-//     let key;
-//     for (key in dataJSON.notes) {
-//       if (id === key) {
-//         req.body.id = id;
-//         dataJSON.notes[key] = req.body;
-//         const todos = JSON.stringify(dataJSON, null, 2);
-//         test = true;
-//         fs.writeFile('data.json', todos, 'utf8', err => {
-//           if (err) {
-//             res.status(500).send({ error: 'An unexpected error occurred.' });
-//           } else {
-//             res.status(200).send(dataJSON.notes[key]);
-//           }
-//         });
-//       }
-//     }
-//     if (test === false) {
-//       res.status(404).send({ error: 'cannot find note with id' + ' ' + id });
-//     }
-//   } else {
-//     res.status(400).send({ error: 'content is a required field' });
-//   }
-// });
-
-
-
-
-
-app.get('/api/grades/:gradeId', (req, res, next) => {
-  const gradeId = parseInt(req.params.gradeId, 10);
-  if (!Number.isInteger(gradeId) || gradeId <= 0) {
-    res.status(400).json({
-      error: '"gradeId" must be a positive integer'
-    });
-    return;
-  }
-  const sql = `
-    select *
-      from "grades"
-     where "gradeId" = $1
-  `;
-  const params = [gradeId];
-  db.query(sql, params)
-    .then(result => {
-      const grade = result.rows[0];
-      console.log(grade);
-      if (!grade) {
-        res.status(404).json({
-          error: `Cannot find grade with "gradeId" ${gradeId}`
-        });
-      } else {
-        res.json(grade);
       }
     })
     .catch(err => {
