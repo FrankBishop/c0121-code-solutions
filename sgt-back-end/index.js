@@ -103,11 +103,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
     });
     return;
   }
-  const values = [];
-  let key;
-  for (const key in req.body) {
-    values.push(`${req.body[key]}`);
-  }
+  const params = [gradeId, req.body.course, req.body.name, req.body.score];
   const sql = `
     update "grades"
        set "course" = $2,
@@ -116,11 +112,9 @@ app.put('/api/grades/:gradeId', (req, res) => {
      where "gradeId" = $1
      returning *;
   `;
-  const params = [gradeId, values[0], values[1], values[2]];
   db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
-      console.log('grade', grade);
       if (!grade) {
         res.status(404).json({
           error: `Cannot find grade with "gradeId" ${gradeId}`
