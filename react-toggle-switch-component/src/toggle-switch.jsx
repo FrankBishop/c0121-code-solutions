@@ -24,7 +24,11 @@ class ToggleSwitch extends React.Component {
   }
 
   handleClick() {
-    this.setState({ isClicked: true });
+    if (this.state.isClicked === false) {
+      this.setState({ isClicked: true });
+    } else {
+      this.setState({ isClicked: false });
+    }
   }
 }
 
