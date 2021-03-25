@@ -1,4 +1,3 @@
-import { CLASS, className } from 'postcss-selector-parser';
 import React from 'react';
 
 class HotButton extends React.Component {
@@ -27,8 +26,7 @@ class HotButton extends React.Component {
   }
 
   handleClick() {
-    this.state.clickCount++;
-    this.setState({ isClicked: true });
+    this.setState({ clickCount: this.state.clickCount + 1 });
   }
 }
 
