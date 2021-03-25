@@ -1,0 +1,44 @@
+div {
+  position: relative;
+}
+
+.on {
+  background-color: green;
+  height: 30px;
+  width: 50px;
+  border-radius: 35%;
+}
+
+.off {
+  background-color: grey;
+  height: 30px;
+  width: 50px;
+  border-radius: 35%;
+}
+
+.text {
+  position: absolute;
+  left: 75px;
+  margin-top: 7px;
+}
+
+.switch-off {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 3px;
+  border: black;
+}
+
+.switch-on {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 3px;
+  left: 22px;
+  border: black;
+}
