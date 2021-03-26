@@ -1,0 +1,15 @@
+h1,
+h2 {
+  margin-left: 20px;
+}
+
+.menu {
+  width: 500px;
+  background-color: white;
+  height: 100vh;
+}
+
+.background {
+  background-color: grey;
+  height: 100vh;
+}
