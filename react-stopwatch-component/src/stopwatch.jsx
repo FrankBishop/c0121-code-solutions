@@ -13,12 +13,12 @@ class Stopwatch extends React.Component {
     if (this.state.isRunning === true) {
       return <div className="circle">
         <h1 onClick={this.resetTime}>{this.state.timer}</h1>
-        <i className="fas fa-pause" onClick={this.handleClick}></i>
+        <i className="fas fa-pause icon" onClick={this.handleClick}></i>
       </div>;
     }
     return <div className="circle">
       <h1 onClick={this.resetTime}>{this.state.timer}</h1>
-      <i className="fas fa-play" onClick={this.handleClick}></i>
+      <i className="fas fa-play icon" onClick={this.handleClick}></i>
     </div>;
   }
 

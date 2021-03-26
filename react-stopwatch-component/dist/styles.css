@@ -9,8 +9,7 @@
   align-items: center;
 }
 
-.fa-play,
-.fa-pause {
+.icon {
   position: absolute;
   top: 275px;
   left: 120px;
