@@ -1,0 +1,16 @@
+.circle {
+  border-radius: 50%;
+  border: solid black;
+  height: 250px;
+  width: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  top: 275px;
+  left: 120px;
+}
