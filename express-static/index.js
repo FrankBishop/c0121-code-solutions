@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const joinedPath = path.join(__dirname , 'public');
-const staticTest = app.use(express.static('public'));
+const staticTest = app.use(express.static(joinedPath));
 
 
 app.listen(3000, () => {
