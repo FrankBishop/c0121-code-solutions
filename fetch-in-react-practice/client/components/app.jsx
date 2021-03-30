@@ -20,8 +20,10 @@ export default class App extends React.Component {
   getAllTodos() {
     fetch('/api/todos')
       .then(response => response.json())
-      .then(todos => this.setState({ todos }));
-
+      .then(todos => this.setState({ todos }))
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   addTodo(newTodo) {
@@ -33,46 +35,43 @@ export default class App extends React.Component {
       }
     })
       .then(response => response.json())
-      .then(json => this.state.todos.push(json))
-      .then(json => this.setState({ json }));
+      .then(todo => {
+        const todos = this.state.todos.concat(todo);
+        this.setState({ todos });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   toggleCompleted(todoId) {
-    let change;
+    let todoIndex;
     for (let i = 0; i < this.state.todos.length; i++) {
       if (this.state.todos[i].todoId === todoId) {
-        change = this.state.todos[i].isCompleted;
+        todoIndex = i;
+        break;
       }
     }
-    if (change === false) {
-      fetch(`/api/todos/${todoId}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          todoId: todoId,
-          isCompleted: true
-        }),
-        headers: {
-          'Content-type': 'application/json'
-        }
+    const isCompleted = this.state.todos[todoIndex].isCompleted;
+    const toggle = {
+      isCompleted: !isCompleted
+    };
+    fetch(`/api/todos/${todoId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(toggle),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(updatedTodo => {
+        const newTodosList = this.state.todos.slice();
+        newTodosList[todoIndex] = updatedTodo;
+        this.setState({ todos: newTodosList });
       })
-        .then(response => response.json())
-        .then(json => this.state.todos.splice(todoId - 1, 1, json))
-        .then(json => this.setState({ json }));
-    } else {
-      fetch(`/api/todos/${todoId}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          todoId: todoId,
-          isCompleted: false
-        }),
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-        .then(response => response.json())
-        .then(json => this.state.todos.splice(todoId - 1, 1, json))
-        .then(json => this.setState({ json }));
-    }
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   render() {
