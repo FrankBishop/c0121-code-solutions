@@ -35,6 +35,7 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       db.query(sql, values)
         .then(result => {
           const userAccount = result.rows[0];
+          delete userAccount.hashedPassword;
           res.status(201).json(userAccount);
         })
         .catch(err => next(err));
