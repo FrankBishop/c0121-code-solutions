@@ -10,9 +10,8 @@ function authorizationMiddleware(req, res, next) {
       req.user = payload;
       next();
     } catch (err) {
-      console.error(err);
+      next(err);
     }
-
   }
 }
 
