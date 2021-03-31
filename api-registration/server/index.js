@@ -37,17 +37,9 @@ app.post('/api/auth/sign-up', (req, res, next) => {
           const userAccount = result.rows[0];
           res.status(201).json(userAccount);
         })
-        .catch(err => {
-          console.error(err);
-          res.status(500).json({
-            error: 'An unexpected error occurred.'
-          });
-        });
-
+        .catch(err => next(err));
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => next(err));
 });
 
 app.use(errorMiddleware);
