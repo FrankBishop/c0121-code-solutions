@@ -1,0 +1,23 @@
+User can sign up.
+
+-When the user clicks Register Now on the Home Page the auth-form component is re-rendered to show the registration forms, this rendering is
+determined through conditional statements in the render method of the auth-form class
+
+-the username and password entered are passed into this.state through the setState method.  Once the handleSubmit request is fired, a POST request is made
+to the server.  If the user was signing up, the POST request is made for the route '/api/auth/sign-up' then the password is hashed then the username and password are
+sent to the database.  Then the form changes to the sign-in page.
+
+User can sign in
+
+-If the user is signing in, the onSignIn method is called, and then the handle Sign-In method of the App class is called and updates the User state of the app.
+A POST request to '/api/auth/sign-up' is made that looks up the username and password in the database to see if they match.  If they don't match, the user gets an
+error.  If they do match the user can logon.
+
+User can stay signed in
+
+-If the page is refreshed, the CompenentDidMount method of the App object gets the token.  If the token is authorized then the state of the app is updated for the user
+
+User can sign out
+
+-The handle signOut method of the App Class is called when the event is triggered.  'react-context-jwt' is removed from LocalStorage and the state.user is set
+to null
