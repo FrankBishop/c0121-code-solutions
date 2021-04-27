@@ -39,3 +39,9 @@ img {
   width: 100%;
   height: 80%;
 }
+
+.left,
+.right {
+  position: absolute;
+  left: 500px;
+}

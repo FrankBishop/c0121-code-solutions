@@ -4,25 +4,26 @@ class Carousel extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { image: 1, interval: setInterval(this.change, 3000) };
+    this.state = { image: 1, interval: null };
     this.change = this.change.bind(this);
     this.goLeft = this.goLeft.bind(this);
     this.goRight = this.goRight.bind(this);
     this.changeImage = this.changeImage.bind(this);
   }
 
-  // componentDidMount() {
-  //   setInterval(this.change, 3000);
-  // }
+  componentDidMount() {
+    const interval = setInterval(this.change, 3000);
+    this.setState({ interval: interval });
+  }
 
   render() {
     const imageC = this.props.images.map(image =>
       <div key={image.number}>
         {this.state.image === image.number &&
-          <div key={image.number}>
-            <i onClick={this.goLeft} className="fas fa-angle-left fa-5x"></i>
+          <div className = "carousel-image" key={image.number}>
+            <i onClick={this.goLeft} className="fas fa-angle-left fa-5x left"></i>
             <img src={image.image} alt="image" />
-            <i onClick={this.goRight} className="fas fa-angle-right fa-5x"></i>
+            <i onClick={this.goRight} className="fas fa-angle-right fa-5x right"></i>
           </div>
         }
       </div>
@@ -33,8 +34,8 @@ class Carousel extends React.Component {
       </div>
     );
     return <div className="carousel">
-      <div>{imageC}</div>
-      <div>{circles}</div>
+      <div className="image-holder">{imageC}</div>
+      <div className="circles">{circles}</div>
     </div>;
   }
 
@@ -49,22 +50,16 @@ class Carousel extends React.Component {
   goLeft() {
     if (this.state.image > 1) {
       this.setState({ image: this.state.image - 1 });
-      // clearInterval(this.change);
-      // setInterval(this.change, 3000);
     } else {
       this.setState({ image: this.props.images.length });
-      // clearInterval(this.change);
-      // setInterval(this.change, 3000);
     }
   }
 
   goRight() {
     if (this.state.image < this.props.images.length) {
       this.setState({ image: this.state.image + 1 });
-      // setInterval(this.change, 3000);
     } else {
       this.setState({ image: 1 });
-      // setInterval(this.change, 3000);
     }
   }
 
