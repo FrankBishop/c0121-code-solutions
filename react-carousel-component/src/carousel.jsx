@@ -4,15 +4,16 @@ class Carousel extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { image: 2 };
+    this.state = { image: 1, interval: setInterval(this.change, 3000) };
     this.change = this.change.bind(this);
     this.goLeft = this.goLeft.bind(this);
     this.goRight = this.goRight.bind(this);
+    this.changeImage = this.changeImage.bind(this);
   }
 
-  componentDidMount() {
-    setInterval(this.change, 3000);
-  }
+  // componentDidMount() {
+  //   setInterval(this.change, 3000);
+  // }
 
   render() {
     const imageC = this.props.images.map(image =>
@@ -28,7 +29,7 @@ class Carousel extends React.Component {
     );
     const circles = this.props.images.map(image =>
       <div key={image.number}>
-        <i className="far fa-circle fa-lg dot" image={image.image}></i>
+        <i onClick={this.changeImage} number={image.number} className="far fa-circle fa-lg dot" image={image.image}></i>
       </div>
     );
     return <div className="carousel">
@@ -46,27 +47,30 @@ class Carousel extends React.Component {
   }
 
   goLeft() {
-    if (this.state.image < this.props.images.length && this.state.image > 1) {
+    if (this.state.image > 1) {
       this.setState({ image: this.state.image - 1 });
-      clearInterval(this.change);
-      setInterval(this.change, 3000);
+      // clearInterval(this.change);
+      // setInterval(this.change, 3000);
     } else {
       this.setState({ image: this.props.images.length });
-      clearInterval(this.change);
-      setInterval(this.change, 3000);
+      // clearInterval(this.change);
+      // setInterval(this.change, 3000);
     }
   }
 
   goRight() {
     if (this.state.image < this.props.images.length) {
       this.setState({ image: this.state.image + 1 });
-      clearInterval(this.change);
-      setInterval(this.change, 3000);
+      // setInterval(this.change, 3000);
     } else {
       this.setState({ image: 1 });
-      clearInterval(this.change);
-      setInterval(this.change, 3000);
+      // setInterval(this.change, 3000);
     }
+  }
+
+  changeImage(event) {
+    const imageNumber = Number(event.target.getAttribute('number'));
+    this.setState({ image: imageNumber });
   }
 }
 
