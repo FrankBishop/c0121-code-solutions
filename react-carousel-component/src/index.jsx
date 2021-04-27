@@ -26,7 +26,7 @@ const images = [
 ];
 
 const element = (
-  <div>
+  <div className="carousel-holder">
     <Carousel images={images} />
   </div>
 );

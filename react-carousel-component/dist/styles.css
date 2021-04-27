@@ -1,0 +1,26 @@
+.carousel {
+  width: 50%;
+  height: 60%;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.carousel > img {
+  padding-left: 20%;
+  padding-right: 20%;
+  width: 100%;
+  height: 80%;
+}
+
+.carousel-holder {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
