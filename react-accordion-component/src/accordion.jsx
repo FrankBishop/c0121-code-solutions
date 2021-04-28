@@ -6,12 +6,11 @@ class Accordion extends React.Component {
     super(props);
     this.state = { languageClicked: null };
     this.handleClick = this.handleClick.bind(this);
-    this.close = this.close.bind(this);
   }
 
   render() {
     const accordList = this.props.languages.map(language =>
-      <div onClick={this.handleClick} key={language.number}>
+      <div onClick={() => this.handleClick(language.number)} key={language.number}>
         <h2>{language.language}</h2>
         {this.state.languageClicked === language.number &&
           <p>{language.info}</p>
@@ -24,19 +23,12 @@ class Accordion extends React.Component {
 
   }
 
-  handleClick(event) {
-    console.log('event target', event.target);
-    let accordNumber = event.target.getAttribute('key');
-    accordNumber = Number(accordNumber);
-    if (accordNumber === this.state.languageClicked) {
+  handleClick(languageNumber) {
+    if (languageNumber === this.state.languageClicked) {
       this.setState({ languageClicked: null });
     } else {
-      this.setState({ languageClicked: accordNumber });
+      this.setState({ languageClicked: languageNumber });
     }
-  }
-
-  close() {
-    this.setState({ languageClicked: null });
   }
 
 }
