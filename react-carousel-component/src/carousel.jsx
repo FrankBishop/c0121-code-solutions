@@ -16,11 +16,17 @@ class Carousel extends React.Component {
     this.setState({ interval: interval });
   }
 
+  componentDidUpdate() {
+    clearInterval(1);
+    const interval = setInterval(this.change, 3000);
+    this.setState({ interval: interval });
+  }
+
   render() {
     const imageC = this.props.images.map((image, index) =>
       <div key={index}>
         {this.state.image === index &&
-          <div className = "carousel-image" key={index}>
+          <div className="carousel-image" key={index}>
             <i onClick={this.goLeft} className="fas fa-angle-left fa-5x left"></i>
             <img src={image.image} alt="image" />
             <i onClick={this.goRight} className="fas fa-angle-right fa-5x right"></i>
