@@ -1,0 +1,42 @@
+.carousel {
+  width: 50%;
+  height: 60%;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap;
+  border: black solid;
+}
+
+.carousel > img {
+  padding-left: 20%;
+  padding-right: 20%;
+  width: 100%;
+  height: 80%;
+}
+
+.carousel-holder {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-holder {
+  display: flex;
+  align-items: center;
+}
+
+.circles {
+  display: flex;
+}
+
+.carousel-image {
+  display: flex;
+  align-items: center;
+}
